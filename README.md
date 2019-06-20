@@ -19,7 +19,7 @@
 5. The scrambled lambda function will exist with the directory of the function: lambda-func/output/src.zip
 6. Use aws lambda create-function command to push your function to lambda, using the provided runtime created, see the example below -- these steps should be familiar:
 
-`
+```
 aws lambda create-function \
     --function-name pxp-example \
     --handler handler.hello \
@@ -28,11 +28,11 @@ aws lambda create-function \
     --runtime provided \
     --region us-west-2 \
     --layers arn:aws:lambda:XXXXXXXXXXXXXXXXXXXX {PXP RUNTIME}
-`
+```
 
 To invoke the function locally:
 
-`
+```
 aws lambda invoke \
     --function-name pxp-example \
     --region us-west-2 \
@@ -40,7 +40,7 @@ aws lambda invoke \
     --query 'LogResult' \
     --output text \
     --payload '{"name": "World"}' hello-output.txt | base64 --decode
-`
+```
 
 
 
@@ -56,9 +56,9 @@ The root build script, will by default build only the final lambci/lambda docker
 The following arguments are available for the root build script:
 
 
-`
-OPTIONS
 
+##### OPTIONS
+```
 -a or --all
 	Runs all build scripts for all directories, to add or removed directories from this list, edit the build script to include any additional directies in the $lambda array.
 
@@ -67,7 +67,7 @@ OPTIONS
 
 -p or --publish
 	Publishes lambda-pxp-runtime to aws using img2lambda
-`
+```
 
 
 [1]: docker.com
