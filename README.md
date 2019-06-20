@@ -1,4 +1,4 @@
-#AWS Lambda PXP Example setup 
+# AWS Lambda PXP Example setup 
 
 ## Notes
 
@@ -44,13 +44,13 @@ aws lambda invoke \
 
 
 
-##Testing locally
+## Testing locally
 
 Using Docker gives us the ability to also test our functions locally. Each example lambda function directory includes a Dockerfile and a test.sh script. To test your image locally you can either run the test script as is or reference these scripts for an example on how to run your funciton locally.
 
 
 
-###Build Scripts
+### Build Scripts
 Each directory contains a build script that will build the necessary components with those directoires.
 The root build script, will by default build only the final lambci/lambda docker image.
 The following arguments are available for the root build script:
