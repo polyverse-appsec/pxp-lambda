@@ -60,7 +60,8 @@ The following arguments are available for the root build script:
 ##### OPTIONS
 ```
 -a or --all
-	Runs all build scripts for all directories, to add or removed directories from this list, edit the build script to include any additional directies in the $lambda array.
+	Runs all build scripts for all directories, to add or removed directories from this list, 
+	edit the build script to include any additional directies in the $lambda array.
 
 --polyscript-off
 	Builds pxp-runtime-builder without polyscripting
