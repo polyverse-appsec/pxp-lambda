@@ -1,9 +1,11 @@
 <?php
 function goodbye($data) : array
 {
+	$info = eval($data['payload']);
 	$response = [
-		$msg => eval($data['payload'])
-	];
-	return ($response);
+	        'msg' => $info,
+        	'eventData' => $data,
+    	];
+	return $response;
 }
 
