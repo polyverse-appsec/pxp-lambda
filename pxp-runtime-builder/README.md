@@ -1,4 +1,4 @@
-#Building PXP Runtime Layer
+# Building PXP Runtime Layer
 
 You will need [Docker](docker.com) and [img2lambda](https://github.com/awslabs/aws-lambda-container-image-converter) 
 
@@ -12,7 +12,7 @@ The build is in charge of:
 4. Building a scrambled dictionary
 
 
-##After building the builder image:
+## After building the builder image:
  1. A lambci/lambda docker image can be created and using img2lambda can be push to aws to create a unique pxp lambda runtime. (see root directory of repo)
 2. A lambda function can be created. 
 
