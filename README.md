@@ -46,7 +46,7 @@ aws lambda invoke \
 
 ## Testing locally
 
-Using Docker gives us the ability to also test our functions locally. Each example lambda function directory includes a Dockerfile and a test.sh script. To test your image locally you can either run the test script as is or reference these scripts for an example on how to run your funciton locally.
+Using Docker gives us the ability to also test our functions locally. Each example lambda function directory includes a Dockerfile and a test.sh script. To test your image locally you can either run the test script as is or reference these scripts for an example on how to run your funciton locally. NOTE: The test requires a pxp-runtime-builder image to exist, so run ./build.sh from that directory prior to running your lambda test.
 
 
 
