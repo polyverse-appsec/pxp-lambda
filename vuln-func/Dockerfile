@@ -1,4 +1,3 @@
-#TODO:  Test PHP action locally
 ARG headsha
 FROM pxp-runtime-builder:${headsha} as builder
 

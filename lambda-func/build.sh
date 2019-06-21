@@ -2,6 +2,7 @@ headsha=$(git rev-parse --verify HEAD)
 
 CONTAINER=$headsha-build-lambda
 
+mkdir -p output
 rm -r output/*
 
 docker run --rm -dit \

@@ -4,6 +4,7 @@ headsha=$(git rev-parse --verify HEAD)
 
 CONTAINER=$headsha-build-lambda-vuln
 
+mkdir -p output
 rm -r output/*
 
 docker run --rm -dit \
