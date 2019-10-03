@@ -24,19 +24,20 @@ do
 	then 
 		MODE=""
 	fi
-done	
+done
+
+echo "building pxp-runtime-builder"
+cd pxp-runtime-builder
+./build.sh $MODE
 
 if [ $ALL ] 
 then
-	echo "building pxp-runtime-builder"
-	cd pxp-runtime-builder
-	./build.sh $MODE
 	echo "building lambda functions"
 	for i in "${lambdas[@]}"
 	do
 		echo "building ${i}"	
 		cd ../$i
-		./build.sh
+		./build.sh $MODE
 	done
 	cd ..
 fi

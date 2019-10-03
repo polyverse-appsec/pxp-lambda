@@ -1,4 +1,3 @@
-#TODO:  Test PHP action locally
 ARG headsha
 FROM pxp-runtime-builder:${headsha} as builder
 
@@ -9,5 +8,5 @@ COPY --from=builder /polyscript-src /polyscript-src
 WORKDIR /polyscript-src/
 
 COPY --from=builder /runtime /opt/
-RUN /polyscript-src/s_php /polyscript-src/tok-php-transformer.php -p /var/task/src --replace
+RUN if [ -f /polyscript-src/s_php ] ; then /polyscript-src/s_php /polyscript-src/tok-php-transformer.php -p /var/task/src --replace ; else echo "Polyscripting disabled" ; fi
 

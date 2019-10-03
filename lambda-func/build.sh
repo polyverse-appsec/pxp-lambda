@@ -11,8 +11,13 @@ docker run --rm -dit \
 	pxp-runtime-builder:$headsha bash
 
 docker cp src/ $CONTAINER:/src
-
-docker exec $CONTAINER /polyscript-src/s_php /polyscript-src/tok-php-transformer.php -p /src --replace
+if [[ $1 == polyscripted ]]; then
+        if ! docker exec $CONTAINER /polyscript-src/s_php /polyscript-src/tok-php-transformer.php -p /src --replace
+        then    
+                echo "FAILED: Polyscripting not enabled on runtime builder. Rebuild builder with polyscripting enabled"
+                exit 1
+        fi  
+fi
 docker exec $CONTAINER  zip -r /tmp/src.zip /src
 
 docker stop $CONTAINER
