@@ -1,5 +1,5 @@
 #POLYSCRIPT
-FROM polyverse/polyscript-deps:605b1e8087c7c12cd32ae989bad1dbe8c0754c12 as polyscripter
+FROM polyverse/polyscript-deps:40983c461e80b4b0087354b84d132dbd0c957fe3 as polyscripter
 
 # Build PHP in the Lambda container
 FROM amazonlinux:2017.03.1.20170812 as builder
@@ -19,6 +19,7 @@ RUN sed -i 's;^releasever.*;releasever=2017.03;;' /etc/yum.conf && \
                 bzip2-devel \
                 tar \
                 gzip \
+		vim \
 		re2c \
                 zip \
                 unzip \
