@@ -1,5 +1,5 @@
 #POLYSCRIPT
-FROM polyverse/polyscript-deps:40983c461e80b4b0087354b84d132dbd0c957fe3 as polyscripter
+FROM polyverse/php-polyscripting-builder:1b5fb0089973c9db7f4071cb41b2f71731a6f6b3 as polyscripter
 
 # Build PHP in the Lambda container
 FROM amazonlinux:2017.03.1.20170812 as builder
@@ -26,9 +26,8 @@ RUN sed -i 's;^releasever.*;releasever=2017.03;;' /etc/yum.conf && \
                 git
 
 ###<POLYSCRIPT DEPS>###
+COPY --from=polyscripter /polyscripting /polyscript-src
 COPY --from=polyscripter /lambda /polyscript-src
-COPY --from=polyscripter /tok-php-transformer/tok-php-transformer.php /tok-php-transformer/snip-transform.php /polyscript-src/
-COPY --from=polyscripter /scripts/php-scrambler /polyscript-src
 ENV POLYSCRIPT_PATH "/polyscript-src"
 ENV PHP_SRC_PATH "/php-src-php-${php_version}"
 ENV PHP_EXEC "/runtime/bin"
